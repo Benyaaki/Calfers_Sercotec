@@ -1,0 +1,14 @@
+.illustration .detail-drawing {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: clamp(205px, 29vw, 380px);
+  object-fit: contain;
+}
+@media (max-width: 720px) {
+  .illustration .detail-drawing {
+    max-width: 76%;
+    max-height: 260px;
+  }
+}
