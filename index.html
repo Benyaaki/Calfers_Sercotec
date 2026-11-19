@@ -81,7 +81,7 @@
   <p>El carrito nuevo de periféricos suma $298.760 sin CMR. El carrito anterior salía $261.970 sin CMR, y en el cálculo anterior del plan se habían reservado $297.970 para esa partida.</p>
  </details>
 </section>
-<div id="purchases"></div><input type="hidden" id="originalInvest"><input type="hidden" id="originalManage"><p id="originalResult" hidden></p><p class="note">Valores estimados en CLP. Se incluye un mini PC según el checkout y se estima el mismo precio para el segundo, sujeto a que se repita el descuento. Cableado Ethernet estimado según la publicación. Tres cables de 10 metros. El inicio de marca se propone como activo intangible. El total incluye $144.880 de derechos finales de marca como partida condicionada. Si quedan fuera del plazo o F&J no los aprueba, el saldo de subsidio por asignar se estima en <span id="subsidyBalanceWithoutRights"></span>. La capacitación se retiró del presupuesto tras la reunión. La reserva para agencia es estimativa y requiere cotización con factura y aprobación. La silla seleccionada es Vertagear SL1800 de MyShop a $164.569. El mouse Logitech Lift Graphite se cambia a MyShop por $57.990 según el carro; confirmar precio para el medio de pago autorizado. Precios de otros medios de pago. SIPO y MyShop tienen despacho gratuito; PC Factory tiene retiro gratuito. Falta confirmar el envío del SSD externo. <a href="https://www.sercotec.cl/convocatoria/capital-semilla-modo-empleo-region-de-ohiggins/" target="_blank" rel="noopener">Ficha del programa ↗</a></p>
+<div id="purchases"></div><input type="hidden" id="originalInvest"><input type="hidden" id="originalManage"><p id="originalResult" hidden></p>
 <a class="finance-transition-link" href="#proyeccion">Ver proyección financiera <span aria-hidden="true">↓</span></a>
 </div></section>
 <style>
@@ -173,7 +173,7 @@
   <article class="enter"><span class="ai-plan-icon" aria-hidden="true">↗</span><h4>Realiza acciones</h4><p>Registra solicitudes y ejecuta las acciones acordadas, con confirmación y registro de lo realizado.</p><div class="ai-prices"><small>Implementación</small><strong>$350.000</strong><span>+$15.000 al mes</span></div></article>
  </div>
  <div class="ai-example"><div><small>Ejemplo de venta adicional</small><strong>5 webs + 1 asistente con consultas</strong><p>$1.750.000 + $200.000 de implementación</p></div><div><strong>$1.950.000</strong><span>en servicios del mes</span><small>+$10.000 mensuales al activarse</small></div></div>
- <p class="note">Tarifas iniciales propuestas antes de IVA. La mensualidad incluye alojamiento del asistente, monitoreo básico y corrección de fallas de la integración entregada. Nuevas funciones y conexiones se cotizan aparte. La capacidad y el volumen de uso se validarán con pruebas antes de ampliar el servicio.</p>
+ 
 </div>
 <style>
 .delivery-plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:22px 0}.delivery-plan article{padding:18px;border:1px solid #ceb4e2;border-radius:16px;background:#fcf8f3}.delivery-plan strong,.delivery-plan span,.delivery-plan small{display:block}.delivery-plan span{font-size:20px;font-weight:750;margin:6px 0}.delivery-plan small{line-height:1.4}
@@ -868,7 +868,7 @@ function render(){
   ownTaxes:total-subsidy-contribution,grossInvestment:investment,grossManagement:management,
   subsidyBalanceWithoutRights:budgetLimit-investmentWithoutRights-managementSubsidy
  };
- Object.entries(amounts).forEach(([id,amount])=>{one('#'+id).textContent=clp(amount)});
+ Object.entries(amounts).forEach(([id,amount])=>{if(one('#'+id))one('#'+id).textContent=clp(amount)});
  renderRecovery(amounts.ownBudget,total,marketing);
  one('#originalResult').textContent=one('#originalInvest').value&&one('#originalManage').value?'Total original '+clp(read('originalInvest')+read('originalManage'))+' · Diferencia en inversión '+clp(investment-read('originalInvest'))+' · Diferencia en gestión '+clp(management-read('originalManage')):'Pendiente de transcribir desde el formulario enviado.';
  all('[data-field]').forEach(display=>{
