@@ -1,0 +1,192 @@
+/* Shared responsive layout for presentation and investment detail pages. */
+html { -webkit-text-size-adjust: 100%; }
+button, a, input, select, summary { -webkit-tap-highlight-color: transparent; }
+select, input, button { touch-action: manipulation; }
+@media (max-width: 900px) {
+  .wrap { width: min(100% - 40px, 760px); }
+  main, section, article, .wrap, .income-options, .income-preview { min-width: 0; }
+  section[id], .finance-details[id] { scroll-margin-top: 92px; }
+  .nav.nav, .nav.nav.float, .nav.nav.float:hover, .nav.nav.float:focus-within { top: 12px; width: calc(100% - 24px); height: auto; min-height: 56px; padding: 8px 12px; gap: 8px; border: 1px solid #ffffff24; border-radius: 20px; background: #271b34f5; backdrop-filter: blur(14px); display: grid; grid-template-columns: 1fr 44px; overflow: visible; }
+  .nav.nav .brand { display: flex; font-size: 13px; letter-spacing: .1em; gap: 9px; }
+  .nav.nav .brand img { width: 30px; height: 30px; }
+  .nav.nav .logo-toggle { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: #ffffff12; color: #fff4fc; }
+  .nav.nav .logo-toggle img { display: none; }
+  .nav.nav .logo-toggle::after { content: '☰'; font-size: 24px; line-height: 1; }
+  .nav.nav.open .logo-toggle::after { content: '×'; font-size: 32px; }
+  .nav.nav .links { display: none; }
+  .nav.nav.open .links { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 6px; padding-top: 8px; border-top: 1px solid #ffffff24; }
+  .nav.nav .links a { display: flex; align-items: center; min-height: 44px; padding: 10px 12px; font-size: 14px; border-radius: 12px; background: #ffffff0b; }
+  .nav.nav .links a[aria-current] { background: #bfa8f3; color: #201629; }
+  .income-builder { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; gap: 30px; }
+  .timeline-title { position: static; }
+  .part-intro, .detail-main .part-intro { grid-template-columns: 1fr; }
+  .detail-main .part-intro > div { min-width: 0; }
+}
+@media (max-width: 900px) {
+  body { font-size: 16px; }
+  p { line-height: 1.65; }
+  h1, h2, h3 { overflow-wrap: normal; }
+  h2 { font-size: clamp(36px, 10.8vw, 66px); letter-spacing: -.065em; line-height: 1.04; }
+  .tag { font-size: 11px; line-height: 1.5; letter-spacing: .1em; }
+  .hero { min-height: 100svh; padding: 130px 0 76px; }
+  .hero .wrap { padding-bottom: 24px; }
+  .hero h1 { max-width: none; font-size: clamp(38px, 11.4vw, 78px); line-height: 1.08; letter-spacing: -.07em; padding: 0 0 40px; }
+  .hero-letter { --lean-width: clamp(64px, 19vw, 130px); }
+  .hero p { max-width: 34ch; font-size: 17px; }
+  .cta { min-height: 48px; padding: 14px 19px; font-size: 15px; }
+  .intro, .projects, .invest, .finance, .close { padding-top: 72px; }
+  .intro .wrap { grid-template-columns: 1fr; gap: 20px; }
+  .intro h2 { max-width: 11ch; margin: 10px 0 0; }
+  .crowd { margin-top: 30px; height: 235px; }
+  .projects, .invest, .finance { padding-bottom: 84px; }
+  .projects h2 { max-width: 13ch; }
+  #proyectos .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: auto; gap: 12px; margin: 34px 0 22px; padding-top: 0; }
+  #proyectos .projects-grid article, #proyectos .projects-grid article:nth-child(2), #proyectos .projects-grid article:nth-child(3) { grid-column: span 1; grid-row: auto; min-height: 190px; padding: 20px; border-radius: 20px; }
+  #proyectos .projects-grid article:first-child { grid-column: 1 / -1; min-height: 230px; }
+  #proyectos .projects-grid article[data-mark="V"] { grid-column: 1 / -1; min-height: 180px; }
+  #proyectos .projects-grid article[data-mark="V"] h3 { font-size: 36px; }
+  #proyectos .projects-grid article[data-mark="R"] { grid-column: 1 / -1; padding-right: 115px; }
+  #proyectos .projects-grid h3, #proyectos .projects-grid article[data-mark="V"] h3 { font-size: clamp(25px, 6vw, 38px); line-height: 1.06; padding-right: 0; overflow-wrap: anywhere; }
+  #proyectos .projects-grid article:first-child h3 { font-size: clamp(44px, 12vw, 72px); }
+  #proyectos .projects-grid small { font-size: 12px; line-height: 1.4; }
+  #proyectos .projects-grid .vital-character { grid-column: auto; grid-row: auto; width: 90px; height: auto; right: 12px; top: auto; bottom: auto; transform: none; }
+  #proyectos .projects-grid .project-visit { font-size: 12px; padding: 11px 12px; min-height: 42px; max-width: 100%; line-height: 1.4; }
+  .investment-callout { align-items: flex-start; flex-direction: column; gap: 16px; margin-top: 28px; }
+  .investment-callout strong { display: block; font-size: clamp(38px, 11.5vw, 76px); margin-top: 9px; letter-spacing: -.07em; }
+  .investment-callout .summary { font-size: 14px; }
+  .budget-breakdown { margin: 30px 0 38px; }
+  .budget-breakdown .budget-plan { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .budget-breakdown .budget-plan > div { padding: 16px; min-width: 0; }
+  .budget-breakdown .budget-plan > div:first-child, .budget-breakdown .budget-plan > div:last-child { grid-column: 1 / -1; }
+  .budget-plan strong { font-size: clamp(22px, 5.8vw, 34px); letter-spacing: -.045em; }
+  .budget-breakdown .budget-plan p { font-size: 13px; }
+  .budget-method { padding: 16px; }
+  .budget-method summary { min-height: 30px; line-height: 1.5; }
+  .budget-method p { font-size: 14px; }
+  .purchase-group, .purchase-group-equipos, .purchase-group-formalizacion { display: block; position: relative; margin-top: 32px; }
+  .purchase-group h3 { max-width: none; padding-right: 0; font-size: 25px; }
+  .purchase-character { display: none; }
+  .purchase-group .table { overflow: visible; border: 0; border-radius: 0; box-shadow: none; background: transparent; margin-top: 16px; }
+  .purchase-group table { display: block; min-width: 0; width: 100%; background: transparent; }
+  .purchase-group thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .purchase-group tbody { display: grid; gap: 14px; }
+  .purchase-group tbody tr, .invest .purchase-group tbody tr:nth-child(even) { display: flex; flex-direction: column; min-width: 0; border: 1px solid #dfd0e8; border-radius: 18px; background: #fffaf8; padding: 18px; box-shadow: 0 5px 15px #35204707; }
+  .invest .purchase-group td, .invest .purchase-group td:first-child, .invest .purchase-group td:last-child { display: block; width: 100%; min-width: 0; padding: 12px 0 0; border: 0; text-align: left; overflow-wrap: break-word; font-size: 14px; }
+  .purchase-group td::before { content: attr(data-label); display: block; margin-bottom: 5px; font-size: 10px; line-height: 1.4; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; color: #78588a; }
+  .invest .purchase-group td:first-child { padding: 0 0 14px; border-bottom: 1px solid #e8ddeb; }
+  .purchase-group td:first-child::before { display: none; }
+  .part-open { font-size: 19px; line-height: 1.3; text-decoration: none; }
+  .purchase-group td:first-child small { font-size: 11px; color: #78588a; }
+  .invest .purchase-group td:last-child { margin-top: 12px; padding-top: 12px; border-top: 1px solid #e8ddeb; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .purchase-group td:last-child::before { margin: 0; }
+  .table-value { font-size: 23px; letter-spacing: -.05em; }
+  .invest > .wrap > .note { font-size: 13px; line-height: 1.7; margin-top: 22px; }
+  .finance-transition.is-enabled { height: 115svh; }
+  .finance-transition-copy { padding: 22px; }
+  .finance-transition-copy .tag { max-width: 26ch; }
+  .finance-transition-copy p { font-size: 16px; max-width: 28ch; }
+  .finance-overview { position: relative; padding-top: 0; }
+  .finance-character { float: none; width: 135px; margin: 0 0 20px auto; }
+  .finance-panel .enter h2 { font-size: clamp(36px, 10.2vw, 64px); margin: 12px 0 20px; }
+  .finance-panel .scenario { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 24px 0 18px; }
+  .scenario button { min-height: 48px; border-radius: 14px; text-align: left; padding: 12px 16px; font-size: 14px; }
+  .finance-panel .scenario button { text-align: left; }
+  .finance-chart-heading, .finance-revenue-streams { grid-template-columns: 1fr; gap: 16px; }
+  .finance-chart .chart { padding: 20px 16px 12px; border-radius: 20px; }
+  .finance-chart .chart strong { font-size: clamp(36px, 10vw, 58px); }
+  .finance-chart #financeNote { font-size: 14px; }
+  .finance-chart canvas { height: 145px; }
+  .finance-chart .chart-labels { font-size: 12px; }
+  .finance-revenue-streams { gap: 14px; margin-top: 20px; }
+  .finance-revenue-streams > div { padding-top: 18px; }
+  .finance-revenue-streams p { font-size: 14px; }
+  .finance-details { margin-top: 44px; padding-top: 32px; }
+  .finance-details h3 { font-size: clamp(31px, 8.8vw, 48px); }
+  .delivery-plan { grid-template-columns: 1fr; }
+  .delivery-plan span { font-size: 18px; }
+  .income-builder { gap: 20px; margin-top: 24px; }
+  .income-web-count { display: grid; gap: 8px; }
+  .income-web-count select { width: 100%; min-width: 0; font-size: 16px; min-height: 48px; }
+  .income-months { grid-template-columns: 1fr; }
+  .income-months label { padding: 14px; min-height: 68px; }
+  .income-options input[type="radio"], .income-options input[type="checkbox"] { width: 20px; height: 20px; flex: 0 0 20px; margin: 0; }
+  .income-additions label { display: grid; grid-template-columns: 20px 1fr auto; gap: 9px; font-size: 14px; padding: 14px 0; }
+  .income-additions strong { font-size: 13px; white-space: nowrap; }
+  .income-character { width: 120px; margin: 0 20px -6px auto; }
+  .income-result { padding: 20px 16px; border-radius: 20px; }
+  .income-result > strong { font-size: clamp(36px, 10vw, 62px); }
+  .income-breakdown { font-size: 14px; }
+  .income-breakdown > div { gap: 8px; }
+  .income-breakdown dd { white-space: nowrap; }
+  .income-breakdown dt::before { margin-right: 5px; }
+  .ai-plans { grid-template-columns: 1fr; gap: 12px; }
+  .ai-plans article { padding: 22px; }
+  .ai-plans h4 { font-size: 29px; }
+  .ai-prices strong { font-size: 38px; }
+  .ai-example { padding: 22px; align-items: flex-start; flex-direction: column; gap: 16px; }
+  .ai-example > div:last-child > strong { font-size: clamp(34px, 10vw, 52px); }
+  .capital-recovery { padding: 195px 0 86px; }
+  .recovery-character { left: auto; right: 24px; top: -8px; height: 190px; transform: none; }
+  .recovery-header { padding-right: 0; min-height: 0; }
+  .capital-recovery h2 { font-size: clamp(36px, 10vw, 65px); line-height: 1.07; }
+  .fixed-costs { min-width: 0; margin: 26px 0; padding: 16px; }
+  .fixed-costs legend { max-width: 100%; font-size: 15px; line-height: 1.5; padding: 0 5px; }
+  .fixed-costs > div { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 10px; }
+  .fixed-costs label { font-size: 13px; align-content: start; }
+  .fixed-costs label:last-child { grid-column: 1 / -1; }
+  .fixed-costs input { font-size: 16px; min-height: 48px; }
+  .recovery-controls, .recovery-results { grid-template-columns: 1fr; gap: 18px; }
+  .recovery-controls label { font-size: 14px; gap: 9px; }
+  .recovery-controls select { appearance: auto; font-size: 16px; min-height: 50px; padding: 12px; border-radius: 12px; text-overflow: ellipsis; }
+  .recovery-controls select::picker(select) { appearance: auto; }
+  .recovery-controls small { font-size: 13px; line-height: 1.5; }
+  .recovery-results article { padding: 22px; }
+  .recovery-results strong { font-size: 38px; }
+  .capital-recovery > .wrap > p { font-size: 14px; line-height: 1.65; }
+  .close { padding-bottom: 75px; }
+  .timeline-title h2 { max-width: 10ch; }
+  .timeline-illustration { max-width: 380px; width: 100%; transform: none; }
+  .phases { gap: 10px; padding-left: 20px; }
+  .phase { min-height: 0; padding: 26px 0; }
+  .phase h3 { font-size: 44px; letter-spacing: -.06em; }
+  .calfers-farewell { padding: 68px 0 50px; min-height: 0; }
+  .calfers-farewell h2 { font-size: clamp(52px, 15vw, 88px); }
+  .farewell-character { width: 175px; margin: 28px auto 0; }
+  .detail-nav { align-items: flex-start; gap: 12px; padding: 16px 0; }
+  .detail-back { font-size: 12px; line-height: 1.4; min-height: 44px; max-width: 78%; }
+  .detail-nav a:last-child { font-size: 11px; padding-top: 14px; }
+  .detail-main { padding: 34px 0 42px; }
+  .detail-kicker { font-size: 10px; margin-bottom: 24px; }
+  .detail-main .part-intro { grid-template-columns: 1fr; gap: 22px; }
+  .detail-main h1 { font-size: clamp(38px, 11.5vw, 70px); max-width: 100%; line-height: 1.03; letter-spacing: -.065em; overflow-wrap: normal; margin: 14px 0 20px; }
+  .detail-main .part-intro strong { font-size: 25px; line-height: 1.3; }
+  .detail-main .part-intro p { font-size: 16px; }
+  .detail-main .part-intro .note { font-size: 13px; }
+  .detail-main .part-intro a { min-height: 44px; padding: 11px 14px; line-height: 1.5; max-width: 100%; overflow-wrap: anywhere; }
+  .detail-main .illustration { min-height: 270px; width: 100%; margin: 8px 0 0; }
+  .illustration .detail-drawing { max-width: 85%; max-height: 250px; }
+  .detail-main .parts-art { max-width: 100%; }
+  .detail-specs { margin-top: 38px; }
+  .detail-specs h2 { font-size: 34px; line-height: 1.1; }
+  .component-grid, .part-specs { grid-template-columns: 1fr; gap: 14px; }
+  .component-card { min-width: 0; padding: 22px; }
+  .component-card h3 { font-size: 27px; line-height: 1.15; }
+  .component-card p { font-size: 15px; }
+  .component-card a { overflow-wrap: anywhere; }
+  .detail-end { display: grid; gap: 12px; margin-top: 32px; }
+  .detail-end a { display: flex; align-items: center; min-height: 46px; font-size: 14px; }
+}
+@media (max-width: 370px) {
+  .wrap { width: calc(100% - 32px); }
+  .budget-breakdown .budget-plan { grid-template-columns: 1fr; }
+  #proyectos .projects-grid { grid-template-columns: 1fr; }
+  #proyectos .projects-grid article { grid-column: 1 / -1; }
+  #proyectos .projects-grid article[data-mark="V"] h3 { font-size: 34px; }
+  .income-additions label { grid-template-columns: 20px 1fr; }
+  .income-additions strong { grid-column: 2; margin-left: 0; }
+  .fixed-costs > div { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-character, .recovery-character, .vital-character { transition: none; }
+}
